@@ -2,23 +2,25 @@
 plato = []
 valor = []
 while True:
-    escolha = int(input("Digite 1 para adicionar um novo plato e 2 para ver o estoque de peças: "))
+    escolha = str(input("Digite 1 para adicionar um novo plato e 2 para ver o estoque de peças: ")).strip()
 
-    if escolha == 1:
+    if escolha != "1" and "2":
+        print("Digite 1 ou 2 para continuar por favor.")
+
+    if escolha == "1":
         novo_plato = str(input("Digite seu novo plato: ")).strip()
-        valor_plato = str(input("Digite o valor da peça: "))
+        valor_plato = str(input("Digite o valor da peça: ")).strip()
 
         if novo_plato not in plato:
             plato.append(novo_plato)
             valor.append(valor_plato)
         else:
-            print('Já foi adicionada.')
+            print('Este produto já foi adicionada.')
 
-    elif escolha == 2:
+    elif escolha == "2":
         for novo_plato, valor_plato in zip(plato, valor):
+            print(f'{novo_plato}, custa R$ {valor_plato}')
 
-            marca = novo_plato.replace("'", " ")
-            valor = valor_plato.replace("'", " ")
 
-            print(f'O plato do {marca} custa R$ {valor}.')
+
 
