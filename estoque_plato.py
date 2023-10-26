@@ -1,4 +1,3 @@
-
 plato = []
 valor = []
 while True:
@@ -19,8 +18,5 @@ while True:
 
     elif escolha == "2":
         for novo_plato, valor_plato in zip(plato, valor):
-            print(f'{novo_plato}, custa R$ {valor_plato}')
-
-
-
+            print(f'O plato do {novo_plato}, custa R$ {valor_plato}')
 
