@@ -2,29 +2,27 @@
 print('Seja bem vindo ao controle de estoque')
 
 while True:
-    contador = 0
+
     estoque = int(input("Oque deseja fazer :\n"
                         "Estoque de plato: 1\n"
                         "Estoque de disco: 2\n"
                         "Estoque de rolamento: 3\n"
                         "Digite o numero da sua escolhar: "))
 
-    valor = contador + estoque
-
-    if valor == 1:
-        import estoque_plato
+    if estoque == 1:
+        from estoque_plato import loja
         print("Você vai ser encaminhado para o estoque de plato.")
-        print(estoque_plato)
+        loja()
 
-    elif valor == 2:
-        import estoque_disco
+    elif estoque == 2:
+        from estoque_disco import loja1
         print("Você vai ser encaminhado para o estoque de Disco.")
-        print(estoque_disco)
+        loja1()
 
-    elif valor == 3:
-        import estoque_rolamento
+    elif estoque == 3:
+        from estoque_rolamento import loja2
         print("Você vai ser encaminhado para o estoque de Rolamento.")
-        print(estoque_rolamento)
+        loja2()
     else:
         print("Você nao digitou nem uma das alternativas")
         break

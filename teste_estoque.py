@@ -22,4 +22,3 @@ def loja():
             print(f'O plato do {novo_plato}, custa R$ {valor_plato}')
 
     return
-

@@ -1,7 +1,8 @@
 rolamento = []
 valor = []
-while True:
-    escolha = str(input("Digite 1 para adicionar um novo rolamento e 2 para ver o estoque de peças, 3 para voltar ao inicio: ")).strip()
+
+def loja2():
+    escolha = str(input("Digite 1 para adicionar um novo rolamento e 2 para ver o estoque de peças, 3 para voltar ao inicio : ")).strip()
 
     if escolha != "1" and "2" and "3":
         print("Digite 1 ou 2 ou 3 para continuar por favor.")
@@ -14,10 +15,10 @@ while True:
             rolamento.append(novo_rolamento)
             valor.append(valor_rolamento)
         else:
-            print('Este produto já foi adicionada.')
+            print('Este rolamento não pode ser adicionado porque já existe no estoque.')
 
     elif escolha == "2":
         for novo_rolamento, valor_rolamento in zip(rolamento, valor):
-            print(f'O rolamento do {novo_rolamento}, custa R$ {valor_rolamento}')
-    else:
-        break
+            print(f'O plato do {novo_rolamento}, custa R$ {valor_rolamento}')
+
+    return
