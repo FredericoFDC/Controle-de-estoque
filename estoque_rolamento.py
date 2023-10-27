@@ -18,5 +18,5 @@ while True:
 
     elif escolha == "2":
         for novo_rolamento, valor_rolamento in zip(rolamento, valor):
-            print(f'O rolamento do {novo_plato}, custa R$ {valor_plato}')
+            print(f'O rolamento do {novo_rolamento}, custa R$ {valor_rolamento}')
 
