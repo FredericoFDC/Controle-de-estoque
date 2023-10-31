@@ -1,3 +1,8 @@
+def estoque(novo_plato, plato, valor_plato, valor):
+    if novo_plato not in plato:
+        plato.append(novo_plato)
+        valor.append(valor_plato)
+
 plato = []
 valor = []
 def loja():
@@ -10,17 +15,18 @@ def loja():
 
     if escolha != "1" and "2" and "3":
         print("Digite 1 ou 2 ou 3 para continuar por favor.")
-    
+
 
     if escolha == "1":
         novo_plato = str(input("Digite seu novo plato: ")).strip()
         valor_plato = str(input("Digite o valor da peça: ")).strip()
 
-        if novo_plato not in plato:
-            plato.append(novo_plato)
-            valor.append(valor_plato)
-        else:
-            print('Este plato não pode ser adicionado por que já existe no estoque.')
+        estoque(novo_plato, plato, valor_plato, valor)
+        #if novo_plato not in plato:
+            #plato.append(novo_plato)
+            #valor.append(valor_plato)
+        #else:
+            #print('Este plato não pode ser adicionado por que já existe no estoque.')
 
     elif escolha == "2":
         for novo_plato, valor_plato in zip(plato, valor):
