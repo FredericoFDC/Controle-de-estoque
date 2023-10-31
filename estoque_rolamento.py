@@ -2,7 +2,11 @@ rolamento = []
 valor = []
 
 def loja2():
-    escolha = str(input("Digite 1 para adicionar um novo rolamento e 2 para ver o estoque de peças, 3 para voltar ao inicio : ")).strip()
+    escolha = str(input("Digite:\n"
+                        "1 para adicionar um novo rolamento. \n"
+                        "2 para ver o estoque de peças. \n"
+                        "3 para remover um rolamento do estoque. \n"
+                        "4 para voltar ao inicio : ")).strip()
 
     if escolha != "1" and "2" and "3":
         print("Digite 1 ou 2 ou 3 para continuar por favor.")
@@ -21,4 +25,11 @@ def loja2():
         for novo_rolamento, valor_rolamento in zip(rolamento, valor):
             print(f'O plato do {novo_rolamento}, custa R$ {valor_rolamento}')
 
+    elif escolha == "3":
+        remover = str(input("Qual plato deseja remover: "))
+        if remover in rolamento:
+            rolamento.remove(remover)
+        elif remover not in rolamento:
+            print("Este plato não exist no estoque")
+            print(f'Estes são os platores do estoque {rolamento}')
     return
