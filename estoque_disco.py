@@ -1,5 +1,11 @@
+def estoque(novo_disco, disco, valor_disco, valor):
+    if novo_disco not in disco:
+        disco.append(novo_disco)
+        valor.append(valor_disco)
+
 disco = []
 valor = []
+
 
 def loja1():
 
@@ -16,11 +22,12 @@ def loja1():
         novo_disco = str(input("Digite seu novo disco: ")).strip()
         valor_disco = str(input("Digite o valor da peça: ")).strip()
 
-        if novo_disco not in disco:
-            disco.append(novo_disco)
-            valor.append(valor_disco)
-        else:
-            print('Este disco não pode ser adicionado por que já existe no estoque.')
+        estoque(novo_disco, disco, valor_disco, valor)
+        #if novo_disco not in disco:
+            #disco.append(novo_disco)
+            #valor.append(valor_disco)
+        #else:
+            #print('Este disco não pode ser adicionado por que já existe no estoque.')
 
     elif escolha == "2":
         for novo_disco, valor_disco in zip(disco, valor):

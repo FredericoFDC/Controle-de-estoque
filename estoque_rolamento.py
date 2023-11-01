@@ -1,3 +1,8 @@
+def estoque(novo_rolamento, rolamento, valor_rolamento, valor):
+    if novo_rolamento not in rolamento:
+        rolamento.append(novo_rolamento)
+        valor.append(valor_rolamento)
+
 rolamento = []
 valor = []
 
@@ -15,11 +20,12 @@ def loja2():
         novo_rolamento = str(input("Digite seu novo rolamento: ")).strip()
         valor_rolamento = str(input("Digite o valor da peça: ")).strip()
 
-        if novo_rolamento not in rolamento:
-            rolamento.append(novo_rolamento)
-            valor.append(valor_rolamento)
-        else:
-            print('Este rolamento não pode ser adicionado porque já existe no estoque.')
+        estoque(novo_rolamento, rolamento, valor_rolamento, valor)
+        #if novo_rolamento not in rolamento:
+            #rolamento.append(novo_rolamento)
+            #valor.append(valor_rolamento)
+        #else:
+            #print('Este rolamento não pode ser adicionado porque já existe no estoque.')
 
     elif escolha == "2":
         for novo_rolamento, valor_rolamento in zip(rolamento, valor):
