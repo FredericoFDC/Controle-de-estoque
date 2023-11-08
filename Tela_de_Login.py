@@ -1,9 +1,17 @@
+# Dados fictícios para servir como banco de dados
+banco_de_dados = {
+    "axor": {"plato": 600, "disco": 200, "rolamento": 200}
+}
+
 import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
 
 # Credenciais de login
 credenciais = {"usuario": "admin", "senha": "1234"}
+
+# Variável para armazenar o campo de pesquisa
+campo_pesquisa = None
 
 # Função para verificar o login e senha
 def verificar_login():
@@ -26,11 +34,37 @@ def abrir_janela_principal():
     rótulo = tk.Label(janela_principal, text="Olá, Mundo!")
     rótulo.pack()
 
+    # Adicionar um campo de pesquisa
+    global campo_pesquisa  # Declare campo_pesquisa como global
+    campo_pesquisa = tk.Entry(janela_principal)
+    campo_pesquisa.pack()
+
+    # Adicionar um botão de pesquisa
+    botao_pesquisar = tk.Button(janela_principal, text="Pesquisar", command=executar_pesquisa)
+    botao_pesquisar.pack()
+
+# Função para executar a pesquisa
+def executar_pesquisa():
+    global campo_pesquisa  # Declare campo_pesquisa como global
+    termo_pesquisa = campo_pesquisa.get().lower()
+
+    resultado_pesquisa = []
+    for item in banco_de_dados:
+        if termo_pesquisa in item.lower():
+            resultado_pesquisa.append(item)
+
+    # Exiba os resultados da pesquisa
+    resultado = "Resultados da pesquisa:\n"
+    for item in resultado_pesquisa:
+        resultado += f"Produto: {item}, Estoques: {banco_de_dados[item]}\n"
+
+    messagebox.showinfo("Pesquisa", resultado)
+
 # Janela de login
 janela_login = tk.Tk()
 janela_login.title("Login")
 
-##### Defina a geometria da janela de login para 800x500 pixels e centralize  #####
+# Defina a geometria da janela de login para 800x500 pixels e centralize
 largura_janela = 800
 altura_janela = 500
 largura_tela = janela_login.winfo_screenwidth()
