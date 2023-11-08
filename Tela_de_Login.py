@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from PIL import Image, ImageTk
 
 # Credenciais de login
 credenciais = {"usuario": "admin", "senha": "1234"}
@@ -29,7 +30,7 @@ def abrir_janela_principal():
 janela_login = tk.Tk()
 janela_login.title("Login")
 
-# Defina a geometria da janela de login para 800x500 pixels e centralize
+##### Defina a geometria da janela de login para 800x500 pixels e centralize  #####
 largura_janela = 800
 altura_janela = 500
 largura_tela = janela_login.winfo_screenwidth()
@@ -40,7 +41,7 @@ janela_login.geometry(f"{largura_janela}x{altura_janela}+{x}+{y}")
 
 # Crie um quadro para o formulário
 quadro = tk.Frame(janela_login)
-quadro.pack(pady=180)  # Espaço entre o topo da janela e o formulário
+quadro.pack(pady=180)
 
 # Rótulos para os campos de entrada
 rótulo_usuario = tk.Label(quadro, text="Usuário:")
@@ -55,6 +56,7 @@ entrada_usuario.grid(row=0, column=1, padx=10, pady=10)
 rótulo_senha.grid(row=1, column=0, padx=10, pady=10)
 entrada_senha.grid(row=1, column=1, padx=10, pady=10)
 
+# Botão de login
 botao_login = tk.Button(quadro, text="Login", command=verificar_login)
 botao_login.grid(row=2, columnspan=2, padx=10, pady=10)
 
