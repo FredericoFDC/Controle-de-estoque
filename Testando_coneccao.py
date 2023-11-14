@@ -9,16 +9,17 @@ while True:
         cursor = conexao.cursor()
 
         # Obter dados do usuário
-        idnovo = input("Digite o numero do id: ")
+        #idnovo = input("Digite o numero do id: ")
         platonovo = input("Digite o nome do plato novo: ")
         marcanova = input("Digite a marca do plato novo: ")
         valornovo = input("Digite o valor do plato novo: ")
+        quantidadenova = input("Digite quantos platores novo estã sendo adicionados: ")
 
         # Instrução SQL para realizar o INSERT
-        sql_insert = "INSERT INTO estoque (id, plato, marca, valor) VALUES (%s, %s, %s, %s)"
+        sql_insert = "INSERT INTO plato (plato, marca, valor, quantidade) VALUES (%s, %s, %s, %s)"
 
         # Dados a serem inseridos
-        dados = (idnovo, platonovo, marcanova, valornovo)
+        dados = (platonovo, marcanova, valornovo, quantidadenova)
 
         # Executar a consulta de inserção
         cursor.execute(sql_insert, dados)
@@ -27,7 +28,7 @@ while True:
         conexao.commit()
 
         # Exemplo de consulta SELECT
-        query = "SELECT * FROM estoque"
+        query = "SELECT * FROM plato"
         cursor.execute(query)
 
         # Obter todos os resultados da consulta
